@@ -1,7 +1,7 @@
 # spring-content bug reproduce
 
 
-### spring.content.rest.base-uri leading slash missing 
+### Property Collection Associations links to 404 
 
     https://github.com/paulcwarren/spring-content/issues/90
     
