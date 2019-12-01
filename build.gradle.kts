@@ -18,6 +18,8 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation("org.hsqldb:hsqldb:2.5.0")
+//    implementation("mysql:mysql-connector-java:8.0.18")
+
     implementation("org.hibernate:hibernate-entitymanager:5.4.9.Final")
 
     implementation("com.github.paulcwarren:spring-content-fs-boot-starter:1.0.0.M3")

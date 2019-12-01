@@ -25,7 +25,7 @@ public class Document {
 
 
     @OriginalFileName
-    private String filename;
+    private String originalFilename;
 
     @ContentId
     private String contentId;
@@ -62,12 +62,12 @@ public class Document {
         this.id = id;
     }
 
-    public String getFilename() {
-        return filename;
+    public String getOriginalFilename() {
+        return originalFilename;
     }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
+    public void setOriginalFilename(String originalFilename) {
+        this.originalFilename = originalFilename;
     }
 
     public String getContentId() {
