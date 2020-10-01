@@ -1,5 +1,6 @@
 package cn.lmtoo.demo.springcontent;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
@@ -14,12 +15,7 @@ import java.util.Optional;
  * @since 2019-11-1 10:53:04
  */
 @RepositoryRestResource(path = "documents", collectionResourceRel = "documents")
-interface DocumentRepository extends CrudRepository<Document, Long>, LockingAndVersioningRepository<Document, Long> {
-
-    //TODO: 查询所有的文档，默认禁用掉
-    @Override
-    @RestResource
-    Iterable<Document> findAll();
+interface DocumentRepository extends JpaRepository<Document, Long>, LockingAndVersioningRepository<Document, Long> {
 
     @Override
     @RestResource
@@ -28,4 +24,6 @@ interface DocumentRepository extends CrudRepository<Document, Long>, LockingAndV
     @Override
     @RestResource
     Optional<Document> findById(Long aLong);
+
+    Optional<Document> findByAncestorIdAndSourceAndMimeType(Long ancestorId, String source, String mimeType);
 }

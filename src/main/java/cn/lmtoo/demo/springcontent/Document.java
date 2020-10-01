@@ -12,6 +12,19 @@ import javax.persistence.*;
 @Table(name = "documents")
 public class Document {
 
+    public Document() {
+    }
+
+    public Document(Document original) {
+        this.source = original.source;
+        this.sourceId = original.sourceId;
+        this.mimeType = original.mimeType;
+        this.originalFilename = original.originalFilename;
+        this.contentId = original.contentId;
+        this.size = original.size;
+        this.totalPages = original.totalPages;
+    }
+
     @Id
     @GeneratedValue
     private Long id;
@@ -23,7 +36,6 @@ public class Document {
     @MimeType
     private String mimeType;
 
-
     @OriginalFileName
     private String originalFilename;
 
@@ -32,6 +44,8 @@ public class Document {
 
     @ContentLength
     private long size;
+
+    private long totalPages;
 
     @Version
     private Long version;
@@ -46,13 +60,13 @@ public class Document {
     private String versionLabel;
 
     @AncestorRootId
-    private String ancestralRootId;
+    private Long ancestralRootId;
 
     @AncestorId
-    private String ancestorId;
+    private Long ancestorId;
 
     @SuccessorId
-    private String successorId;
+    private Long successorId;
 
     public Long getId() {
         return id;
@@ -118,6 +132,14 @@ public class Document {
         this.lockOwner = lockOwner;
     }
 
+    public long getTotalPages() {
+        return totalPages;
+    }
+
+    public void setTotalPages(long totalPages) {
+        this.totalPages = totalPages;
+    }
+
     public Long getVersion() {
         return version;
     }
@@ -142,27 +164,27 @@ public class Document {
         this.versionLabel = versionLabel;
     }
 
-    public String getAncestralRootId() {
+    public Long getAncestralRootId() {
         return ancestralRootId;
     }
 
-    public void setAncestralRootId(String ancestralRootId) {
+    public void setAncestralRootId(Long ancestralRootId) {
         this.ancestralRootId = ancestralRootId;
     }
 
-    public String getAncestorId() {
+    public Long getAncestorId() {
         return ancestorId;
     }
 
-    public void setAncestorId(String ancestorId) {
+    public void setAncestorId(Long ancestorId) {
         this.ancestorId = ancestorId;
     }
 
-    public String getSuccessorId() {
+    public Long getSuccessorId() {
         return successorId;
     }
 
-    public void setSuccessorId(String successorId) {
+    public void setSuccessorId(Long successorId) {
         this.successorId = successorId;
     }
 }

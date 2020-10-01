@@ -1,0 +1,9 @@
+.idea
+.gradle
+build
+src
+gradle
+*.properties
+*.kts
+gradle*
+*.gradle
